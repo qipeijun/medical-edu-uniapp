@@ -27,11 +27,14 @@ jobs:
       - name: Create .nojekyll file
         run: touch dist/build/h5/.nojekyll
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: dist/build/h5
-          branch: gh-pages
+            - name: Deploy to GitHub Pages
 
-      - name: Print Deployment URL
-        run: echo "Deployment URL: https://qipeijun.github.io/medical-edu-uniapp/"
+              uses: JamesIves/github-pages-deploy-action@v4
+
+              with:
+
+                folder: dist/build/h5
+
+                branch: gh-pages
+
+      
