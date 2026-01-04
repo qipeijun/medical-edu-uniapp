@@ -9,7 +9,7 @@
 
 ## 🌐 在线体验
 
-**H5 版本**: [https://qipeijun.github.io/medical-edu-uniapp/](https://qipeijun.github.io/medical-edu-uniapp/)
+[H5 版本在线演示](https://qipeijun.github.io/medical-edu-uniapp/)
 
 ## 📖 项目介绍
 
