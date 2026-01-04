@@ -1,13 +1,23 @@
-name: Manual Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,11 +34,14 @@ jobs:
       - name: Build H5
         run: npm run build:h5
 
-      - name: Create .nojekyll file
-        run: touch dist/build/h5/.nojekyll
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist/build/h5'
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: dist/build/h5
-          branch: gh-pages
+        id: deployment
+        uses: actions/deploy-pages@v4
