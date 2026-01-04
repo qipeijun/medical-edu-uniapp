@@ -7,6 +7,10 @@
 ![Uni-app](https://img.shields.io/badge/uniapp-3.0-green.svg)
 ![Platform](https://img.shields.io/badge/platform-H5%20%7C%20WeChat-07c160.svg)
 
+## 🌐 在线体验
+
+**H5 版本**: [https://qipeijun.github.io/medical-edu-uniapp/](https://qipeijun.github.io/medical-edu-uniapp/)
+
 ## 📖 项目介绍
 
 **医教通** 是一款功能完备的医学教育辅助应用，旨在通过科学的学习方法帮助医学生掌握繁杂的医学知识。项目采用 **uni-app** 跨平台框架开发，支持微信小程序和 H5 端。
