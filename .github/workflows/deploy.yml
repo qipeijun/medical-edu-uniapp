@@ -29,3 +29,6 @@ jobs:
         with:
           folder: dist/build/h5
           branch: gh-pages
+
+      - name: Print Deployment URL
+        run: echo "Deployment URL: https://qipeijun.github.io/medical-edu-uniapp/"
