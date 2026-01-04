@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复习</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techBlue: '#03A9F4',
+                        lightCyan: '#E0F7FA',
+                        grassGreen: '#81C784',
+                        warmWhite: '#FAFAFA',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-warmWhite text-gray-800 h-screen w-full overflow-hidden flex flex-col relative">
+
+    <!-- Status Bar -->
+    <div class="h-12 w-full flex justify-between items-center px-6 pt-2 bg-transparent z-50 absolute top-0 text-gray-800 font-medium">
+        <span>9:41</span>
+        <div class="flex items-center gap-1.5">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-full text-xs"></i>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="px-4 py-2 bg-white shadow-sm z-10 flex items-center justify-center relative mt-10">
+        <h1 class="font-bold text-lg">今日复习</h1>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 overflow-y-auto px-4 py-6 pb-24 hide-scrollbar">
+        
+        <!-- Overall Progress -->
+        <div class="bg-gradient-to-br from-techBlue to-blue-400 rounded-2xl p-6 mb-6 text-white shadow-lg relative overflow-hidden">
+             <!-- Background decoration -->
+             <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full transform translate-x-10 -translate-y-10"></div>
+             
+             <div class="flex justify-between items-center">
+                 <div>
+                     <p class="text-sm opacity-80 mb-1">今日待复习总题数</p>
+                     <h2 class="text-4xl font-bold">45 <span class="text-lg font-normal opacity-80">题</span></h2>
+                 </div>
+                 <!-- Ring Chart Mock -->
+                 <div class="w-16 h-16 rounded-full border-4 border-white/30 flex items-center justify-center relative">
+                     <div class="absolute inset-0 border-4 border-white rounded-full border-t-transparent border-l-transparent transform rotate-45"></div>
+                     <span class="text-xs font-bold">30%</span>
+                 </div>
+             </div>
+             <div class="mt-4 text-xs bg-white/20 inline-block px-3 py-1 rounded-full">
+                 已复习 15 题
+             </div>
+        </div>
+
+        <!-- List -->
+        <h3 class="font-bold text-gray-800 mb-4">待复习学科</h3>
+        <div class="space-y-4">
+            
+            <!-- Card 1 -->
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex justify-between items-center relative overflow-hidden">
+                <div class="flex items-center gap-4 relative z-10">
+                    <!-- Progress Ring Mini -->
+                    <div class="w-12 h-12 rounded-full border-4 border-gray-100 flex items-center justify-center relative">
+                        <div class="absolute w-full h-full rounded-full border-4 border-techBlue border-r-transparent border-b-transparent transform rotate-45"></div>
+                        <i class="fas fa-bone text-techBlue text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm">系统解剖学</h4>
+                        <span class="text-xs text-gray-400">待复习 12 题</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-end gap-2 relative z-10">
+                    <span class="px-2 py-0.5 bg-grassGreen/20 text-green-700 text-[10px] rounded">速刷推荐</span>
+                    <button class="px-4 py-1.5 bg-techBlue text-white text-xs rounded-full shadow-sm active:scale-95">开始</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex justify-between items-center relative overflow-hidden">
+                <div class="flex items-center gap-4 relative z-10">
+                    <!-- Progress Ring Mini -->
+                    <div class="w-12 h-12 rounded-full border-4 border-gray-100 flex items-center justify-center relative">
+                        <div class="absolute w-full h-full rounded-full border-4 border-yellow-400 border-r-transparent border-b-transparent transform rotate-12"></div>
+                        <i class="fas fa-flask text-yellow-500 text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm">生物化学</h4>
+                        <span class="text-xs text-gray-400">待复习 20 题</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-end gap-2 relative z-10">
+                    <button class="px-4 py-1.5 bg-techBlue text-white text-xs rounded-full shadow-sm active:scale-95">开始</button>
+                </div>
+            </div>
+
+             <!-- Card 3 -->
+             <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex justify-between items-center relative overflow-hidden">
+                <div class="flex items-center gap-4 relative z-10">
+                    <!-- Progress Ring Mini -->
+                    <div class="w-12 h-12 rounded-full border-4 border-gray-100 flex items-center justify-center relative">
+                         <div class="absolute w-full h-full rounded-full border-4 border-red-400 border-r-transparent border-b-transparent border-l-transparent transform rotate-180"></div>
+                        <i class="fas fa-microscope text-red-500 text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm">病理学</h4>
+                        <span class="text-xs text-gray-400">待复习 13 题</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-end gap-2 relative z-10">
+                    <button class="px-4 py-1.5 bg-techBlue text-white text-xs rounded-full shadow-sm active:scale-95">开始</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="absolute bottom-0 w-full bg-white border-t border-gray-100 pb-6 pt-2 px-6 flex justify-between items-end z-40">
+        <div class="flex flex-col items-center gap-1 text-gray-400">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-[10px]">首页</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-gray-400">
+            <i class="fas fa-book-open text-xl"></i>
+            <span class="text-[10px]">学习</span>
+        </div>
+         <div class="flex flex-col items-center gap-1 text-techBlue">
+            <i class="fas fa-history text-xl"></i>
+            <span class="text-[10px]">复习</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-gray-400">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-[10px]">我的</span>
+        </div>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-800 rounded-full z-50"></div>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techBlue: '#03A9F4',
+                        lightCyan: '#E0F7FA',
+                        grassGreen: '#81C784',
+                        warmWhite: '#FAFAFA',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-warmWhite text-gray-800 h-screen w-full overflow-hidden flex flex-col relative">
+
+    <!-- Status Bar -->
+    <div class="h-12 w-full flex justify-between items-center px-6 pt-2 bg-transparent z-50 absolute top-0 text-gray-800 font-medium">
+        <span>9:41</span>
+        <div class="flex items-center gap-1.5">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-full text-xs"></i>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="px-4 py-2 bg-white shadow-sm z-10 flex items-center justify-center relative mt-10">
+        <h1 class="font-bold text-lg">题库练习</h1>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="flex flex-1 overflow-hidden pb-20">
+        <!-- Sidebar -->
+        <div class="w-24 bg-gray-50 h-full overflow-y-auto hide-scrollbar border-r border-gray-200">
+            <div class="py-2">
+                <div class="px-2 py-3 text-center text-xs font-medium text-techBlue bg-white border-l-4 border-techBlue mb-1">系统解剖学</div>
+                <div class="px-2 py-3 text-center text-xs text-gray-500 mb-1">生理学</div>
+                <div class="px-2 py-3 text-center text-xs text-gray-500 mb-1">病理学</div>
+                <div class="px-2 py-3 text-center text-xs text-gray-500 mb-1">药理学</div>
+                <div class="px-2 py-3 text-center text-xs text-gray-500 mb-1">内科学</div>
+                <div class="px-2 py-3 text-center text-xs text-gray-500 mb-1">外科学</div>
+                <div class="px-2 py-3 text-center text-xs text-gray-500 mb-1">妇产科学</div>
+                <div class="px-2 py-3 text-center text-xs text-gray-500 mb-1">儿科学</div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 h-full overflow-y-auto hide-scrollbar bg-white p-4">
+            <h2 class="font-bold text-sm mb-4">系统解剖学 - 题库</h2>
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-3 group hover:border-techBlue transition-colors cursor-pointer">
+                    <div class="w-full h-20 rounded-lg bg-gray-100 mb-2 overflow-hidden">
+                         <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <h3 class="font-bold text-xs text-gray-800 mb-1">骨学总论</h3>
+                    <p class="text-[10px] text-gray-400">共 120 题</p>
+                </div>
+                 <!-- Card 2 -->
+                 <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-3 group hover:border-techBlue transition-colors cursor-pointer">
+                    <div class="w-full h-20 rounded-lg bg-gray-100 mb-2 overflow-hidden">
+                         <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <h3 class="font-bold text-xs text-gray-800 mb-1">关节学</h3>
+                    <p class="text-[10px] text-gray-400">共 85 题</p>
+                </div>
+                 <!-- Card 3 -->
+                 <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-3 group hover:border-techBlue transition-colors cursor-pointer">
+                    <div class="w-full h-20 rounded-lg bg-gray-100 mb-2 overflow-hidden">
+                         <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <h3 class="font-bold text-xs text-gray-800 mb-1">消化系统</h3>
+                    <p class="text-[10px] text-gray-400">共 200 题</p>
+                </div>
+                 <!-- Card 4 -->
+                 <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-3 group hover:border-techBlue transition-colors cursor-pointer">
+                    <div class="w-full h-20 rounded-lg bg-gray-100 mb-2 overflow-hidden">
+                         <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <h3 class="font-bold text-xs text-gray-800 mb-1">呼吸系统</h3>
+                    <p class="text-[10px] text-gray-400">共 150 题</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="absolute bottom-0 w-full bg-white border-t border-gray-100 pb-6 pt-2 px-6 flex justify-between items-end z-40">
+        <div class="flex flex-col items-center gap-1 text-gray-400">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-[10px]">首页</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-techBlue">
+            <i class="fas fa-book-open text-xl"></i>
+            <span class="text-[10px]">学习</span>
+        </div>
+         <div class="flex flex-col items-center gap-1 text-gray-400">
+            <i class="fas fa-history text-xl"></i>
+            <span class="text-[10px]">复习</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-gray-400">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-[10px]">我的</span>
+        </div>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-800 rounded-full z-50"></div>
+
+</body>
+</html>

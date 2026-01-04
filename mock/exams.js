@@ -1,0 +1,63 @@
+/**
+ * Mock 数据 - 考试数据
+ */
+
+export const mockExams = [
+	{
+		id: 'e001',
+		title: '2026年临床执业医师模拟考试(一)',
+		type: 'mock', // mock | official | practice
+		subject: '综合',
+		duration: 120, // 分钟
+		totalScore: 100,
+		passScore: 60,
+		questionCount: 100,
+		participantCount: 1250,
+		cover: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+		startTime: '2026-01-10 09:00:00',
+		endTime: '2026-01-10 11:00:00',
+		status: 'not_started', // not_started | in_progress | finished | expired
+		description: '全真模拟2026年临床执业医师资格考试第一单元，包含基础医学、人文医学、预防医学等内容。'
+	},
+	{
+		id: 'e002',
+		title: '系统解剖学期末模拟试卷',
+		type: 'practice',
+		subject: '系统解剖学',
+		duration: 90,
+		totalScore: 100,
+		passScore: 60,
+		questionCount: 80,
+		participantCount: 342,
+		cover: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+		startTime: null,
+		endTime: null,
+		status: 'available',
+		description: '针对系统解剖学重点章节的综合测试，适合期末复习自测。'
+	},
+	{
+		id: 'e003',
+		title: '病理学阶段性测试(三)',
+		type: 'practice',
+		subject: '病理学',
+		duration: 60,
+		totalScore: 100,
+		passScore: 60,
+		questionCount: 50,
+		participantCount: 156,
+		cover: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+		startTime: null,
+		endTime: null,
+		status: 'available',
+		description: '肿瘤章节专项测试。'
+	}
+]
+
+export function getExamById(id) {
+	return mockExams.find(e => e.id === id)
+}
+
+export default {
+	mockExams,
+	getExamById
+}

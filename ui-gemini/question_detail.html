@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>答题详情</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techBlue: '#03A9F4',
+                        lightCyan: '#E0F7FA',
+                        grassGreen: '#81C784',
+                        warmWhite: '#FAFAFA',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-warmWhite text-gray-800 h-screen w-full overflow-hidden flex flex-col relative">
+
+    <!-- Status Bar -->
+    <div class="h-12 w-full flex justify-between items-center px-6 pt-2 bg-transparent z-50 absolute top-0 text-gray-800 font-medium">
+        <span>9:41</span>
+        <div class="flex items-center gap-1.5">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-full text-xs"></i>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="h-14 flex items-center px-4 mt-10 justify-between bg-white border-b border-gray-100">
+        <button class="w-10 h-10 flex items-center justify-center rounded-full active:bg-gray-100">
+            <i class="fas fa-arrow-left text-lg text-gray-700"></i>
+        </button>
+        <span class="font-bold text-sm">骨学总论</span>
+        <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">做题模式</span>
+             <div class="w-8 h-4 bg-techBlue rounded-full relative cursor-pointer">
+                <div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub-Header -->
+    <div class="px-4 py-3 bg-white shadow-sm flex gap-2 overflow-x-auto hide-scrollbar">
+        <button class="px-3 py-1 bg-techBlue text-white text-xs rounded-full whitespace-nowrap">A型题</button>
+        <button class="px-3 py-1 border border-lightCyan text-gray-500 text-xs rounded-full whitespace-nowrap">X型题</button>
+        <button class="px-3 py-1 border border-lightCyan text-gray-500 text-xs rounded-full whitespace-nowrap">名词解释</button>
+        <button class="px-3 py-1 border border-lightCyan text-gray-500 text-xs rounded-full whitespace-nowrap">简答题</button>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 overflow-y-auto px-4 py-6 pb-24 hide-scrollbar">
+        <!-- Progress Info -->
+        <div class="flex justify-between items-end mb-4">
+            <span class="text-techBlue font-bold text-xl">1<span class="text-gray-400 text-sm font-normal">/120</span></span>
+            <span class="text-xs text-gray-400">单选题</span>
+        </div>
+
+        <!-- Question -->
+        <div class="mb-6">
+            <p class="font-bold text-lg leading-relaxed text-gray-800">
+                下列关于骨膜的描述，正确的是？
+            </p>
+        </div>
+
+        <!-- Options -->
+        <div class="space-y-3 mb-6">
+            <!-- Option A (Selected Correct) -->
+            <div class="flex items-center p-4 bg-green-50 border border-green-500 rounded-xl cursor-pointer">
+                <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs font-bold mr-3">A</div>
+                <span class="text-sm font-medium text-green-700">由纤维结缔组织构成</span>
+                <i class="fas fa-check text-green-500 ml-auto"></i>
+            </div>
+            <!-- Option B -->
+            <div class="flex items-center p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50">
+                <div class="w-6 h-6 rounded-full border border-gray-300 text-gray-500 flex items-center justify-center text-xs font-bold mr-3">B</div>
+                <span class="text-sm text-gray-600">包裹骨的所有表面</span>
+            </div>
+            <!-- Option C -->
+            <div class="flex items-center p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50">
+                <div class="w-6 h-6 rounded-full border border-gray-300 text-gray-500 flex items-center justify-center text-xs font-bold mr-3">C</div>
+                <span class="text-sm text-gray-600">内层富有血管、神经</span>
+            </div>
+            <!-- Option D -->
+            <div class="flex items-center p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50">
+                <div class="w-6 h-6 rounded-full border border-gray-300 text-gray-500 flex items-center justify-center text-xs font-bold mr-3">D</div>
+                <span class="text-sm text-gray-600">外层含有成骨细胞</span>
+            </div>
+             <!-- Option E -->
+            <div class="flex items-center p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50">
+                <div class="w-6 h-6 rounded-full border border-gray-300 text-gray-500 flex items-center justify-center text-xs font-bold mr-3">E</div>
+                <span class="text-sm text-gray-600">不参与骨的修复</span>
+            </div>
+        </div>
+
+        <!-- Explanation -->
+        <div class="bg-lightCyan/30 rounded-xl p-4">
+            <div class="flex justify-between items-center mb-2 cursor-pointer">
+                <span class="text-sm font-bold text-gray-700">查看解析</span>
+                <i class="fas fa-chevron-up text-gray-500 text-xs"></i>
+            </div>
+            <div class="text-xs text-gray-600 leading-relaxed">
+                <p class="mb-2"><span class="font-bold text-techBlue">【解析】</span></p>
+                <p>骨膜由致密结缔组织构成，被覆于除关节面以外的骨表面。骨膜分内、外两层，外层致密，有许多胶原纤维束穿入骨质，使之固着于骨面；内层疏松，富含血管、神经和成骨细胞，参与骨的营养、生长和修复。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Actions -->
+    <div class="absolute bottom-0 w-full bg-white border-t border-gray-100 px-6 pt-4 pb-8 z-40 flex justify-between items-center">
+        <button class="flex items-center gap-2 text-gray-400 hover:text-techBlue">
+            <i class="fas fa-arrow-left"></i>
+            <span class="text-sm">上一题</span>
+        </button>
+        <button class="flex items-center gap-2 text-gray-400 hover:text-techBlue">
+            <i class="fas fa-star"></i>
+            <span class="text-xs">收藏</span>
+        </button>
+        <button class="flex items-center gap-2 text-gray-400 hover:text-techBlue">
+            <i class="fas fa-edit"></i>
+            <span class="text-xs">纠错</span>
+        </button>
+        <button class="px-6 py-2 bg-techBlue text-white rounded-full text-sm font-bold shadow-md active:scale-95 transition-transform">
+            下一题
+        </button>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-800 rounded-full z-50"></div>
+
+</body>
+</html>

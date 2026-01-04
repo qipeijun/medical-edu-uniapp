@@ -1,0 +1,229 @@
+// 医教通 - 全局样式
+// Global Styles for Medical Education Platform
+
+@import './variables.scss';
+@import './mixins.scss';
+
+// ==================== 全局重置 ====================
+// Global Reset
+
+page {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background-color: $bg-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 重置盒模型
+view, text, button, image, input, textarea {
+  box-sizing: border-box;
+}
+
+// ==================== 通用类 ====================
+// Utility Classes
+
+// 布局
+.flex { display: flex; }
+.flex-center { @include flex-center; }
+.flex-between { @include flex-between; }
+.flex-around { @include flex-around; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+
+// 文本对齐
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+// 文本样式
+.text-ellipsis { @include text-ellipsis; }
+.line-clamp-2 { @include line-clamp(2); }
+.line-clamp-3 { @include line-clamp(3); }
+
+// 字体大小
+.text-xs { font-size: $font-size-xs; }
+.text-sm { font-size: $font-size-sm; }
+.text-base { font-size: $font-size-base; }
+.text-lg { font-size: $font-size-lg; }
+.text-xl { font-size: $font-size-xl; }
+.text-2xl { font-size: $font-size-2xl; }
+.text-3xl { font-size: $font-size-3xl; }
+
+// 字重
+.font-light { font-weight: $font-weight-light; }
+.font-normal { font-weight: $font-weight-normal; }
+.font-medium { font-weight: $font-weight-medium; }
+.font-semibold { font-weight: $font-weight-semibold; }
+.font-bold { font-weight: $font-weight-bold; }
+
+// 文本颜色
+.text-primary { color: $text-primary; }
+.text-secondary { color: $text-secondary; }
+.text-tertiary { color: $text-tertiary; }
+.text-white { color: $text-white; }
+.text-error { color: $error; }
+.text-success { color: $success; }
+.text-blue { color: $primary; }
+
+// 背景颜色
+.bg-white { background-color: $bg-white; }
+.bg-gray { background-color: $bg-gray; }
+.bg-primary { background-color: $primary; }
+.bg-success { background-color: $success; }
+
+// 边距
+.m-0 { margin: 0; }
+.m-1 { margin: $spacing-1; }
+.m-2 { margin: $spacing-2; }
+.m-3 { margin: $spacing-3; }
+.m-4 { margin: $spacing-4; }
+
+.mt-1 { margin-top: $spacing-1; }
+.mt-2 { margin-top: $spacing-2; }
+.mt-3 { margin-top: $spacing-3; }
+.mt-4 { margin-top: $spacing-4; }
+.mt-6 { margin-top: $spacing-6; }
+.mt-8 { margin-top: $spacing-8; }
+
+.mb-1 { margin-bottom: $spacing-1; }
+.mb-2 { margin-bottom: $spacing-2; }
+.mb-3 { margin-bottom: $spacing-3; }
+.mb-4 { margin-bottom: $spacing-4; }
+.mb-6 { margin-bottom: $spacing-6; }
+.mb-8 { margin-bottom: $spacing-8; }
+
+.ml-1 { margin-left: $spacing-1; }
+.ml-2 { margin-left: $spacing-2; }
+.ml-3 { margin-left: $spacing-3; }
+.ml-4 { margin-left: $spacing-4; }
+
+.mr-1 { margin-right: $spacing-1; }
+.mr-2 { margin-right: $spacing-2; }
+.mr-3 { margin-right: $spacing-3; }
+.mr-4 { margin-right: $spacing-4; }
+
+// 内边距
+.p-0 { padding: 0; }
+.p-1 { padding: $spacing-1; }
+.p-2 { padding: $spacing-2; }
+.p-3 { padding: $spacing-3; }
+.p-4 { padding: $spacing-4; }
+.p-6 { padding: $spacing-6; }
+
+.pt-1 { padding-top: $spacing-1; }
+.pt-2 { padding-top: $spacing-2; }
+.pt-3 { padding-top: $spacing-3; }
+.pt-4 { padding-top: $spacing-4; }
+
+.pb-1 { padding-bottom: $spacing-1; }
+.pb-2 { padding-bottom: $spacing-2; }
+.pb-3 { padding-bottom: $spacing-3; }
+.pb-4 { padding-bottom: $spacing-4; }
+
+.pl-1 { padding-left: $spacing-1; }
+.pl-2 { padding-left: $spacing-2; }
+.pl-3 { padding-left: $spacing-3; }
+.pl-4 { padding-left: $spacing-4; }
+
+.pr-1 { padding-right: $spacing-1; }
+.pr-2 { padding-right: $spacing-2; }
+.pr-3 { padding-right: $spacing-3; }
+.pr-4 { padding-right: $spacing-4; }
+
+// 圆角
+.rounded { border-radius: $radius-md; }
+.rounded-lg { border-radius: $radius-lg; }
+.rounded-xl { border-radius: $radius-xl; }
+.rounded-full { border-radius: $radius-full; }
+
+// 阴影
+.shadow-sm { box-shadow: $shadow-sm; }
+.shadow { box-shadow: $shadow-base; }
+.shadow-md { box-shadow: $shadow-md; }
+.shadow-lg { box-shadow: $shadow-lg; }
+
+// ==================== 页面容器 ====================
+// Page Container
+
+.page {
+  min-height: 100vh;
+  background-color: $bg-base;
+}
+
+.page-with-tabbar {
+  min-height: 100vh;
+  padding-bottom: calc($tabbar-height + 20rpx);
+}
+
+.container {
+  padding: 0 $page-padding;
+}
+
+// ==================== 卡片 ====================
+// Card Components
+
+.card {
+  @include card-padded;
+}
+
+.card-plain {
+  @include card;
+}
+
+// ==================== 按钮 ====================
+// Button Components
+
+.btn {
+  @include btn-base;
+}
+
+.btn-primary {
+  @include btn-primary;
+}
+
+.btn-secondary {
+  @include btn-secondary;
+}
+
+.btn-text {
+  @include btn-text;
+}
+
+// ==================== 分隔线 ====================
+// Divider
+
+.divider {
+  @include divider;
+  margin: $spacing-4 0;
+}
+
+// ==================== 空状态 ====================
+// Empty State
+
+.empty-state {
+  @include flex-column-center;
+  padding: $spacing-16 $spacing-4;
+  color: $text-tertiary;
+
+  .empty-icon {
+    font-size: 128rpx;
+    margin-bottom: $spacing-4;
+    color: $gray-300;
+  }
+
+  .empty-text {
+    font-size: $font-size-base;
+  }
+}
+
+// ==================== 加载状态 ====================
+// Loading State
+
+.loading {
+  @include flex-center;
+  padding: $spacing-8 0;
+}

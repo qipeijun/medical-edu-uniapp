@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册登录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techBlue: '#03A9F4',
+                        lightCyan: '#E0F7FA',
+                        grassGreen: '#81C784',
+                        warmWhite: '#FAFAFA',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-warmWhite text-gray-800 h-screen w-full overflow-hidden flex flex-col relative">
+
+    <!-- Status Bar -->
+    <div class="h-12 w-full flex justify-between items-center px-6 pt-2 bg-transparent z-50 absolute top-0 text-gray-800 font-medium">
+        <span>9:41</span>
+        <div class="flex items-center gap-1.5">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-full text-xs"></i>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="h-14 flex items-center px-4 mt-10">
+        <button class="w-10 h-10 flex items-center justify-center rounded-full active:bg-gray-100">
+            <i class="fas fa-arrow-left text-lg text-gray-700"></i>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 px-8 pt-4 flex flex-col">
+        <h2 class="text-2xl font-bold mb-8 text-gray-800">账号登录</h2>
+        
+        <!-- Form -->
+        <div class="space-y-4">
+            <!-- Phone Input -->
+            <div class="relative group">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-mobile-alt text-gray-400 group-focus-within:text-techBlue"></i>
+                </div>
+                <input type="tel" class="block w-full pl-10 pr-3 py-3 border border-lightCyan rounded-md leading-5 bg-white placeholder-gray-400 focus:outline-none focus:border-techBlue focus:ring-1 focus:ring-techBlue sm:text-sm transition-colors" placeholder="请输入手机号">
+            </div>
+
+            <!-- Code Input -->
+            <div class="flex gap-3">
+                <div class="relative group flex-grow">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-shield-alt text-gray-400 group-focus-within:text-techBlue"></i>
+                    </div>
+                    <input type="text" class="block w-full pl-10 pr-3 py-3 border border-lightCyan rounded-md leading-5 bg-white placeholder-gray-400 focus:outline-none focus:border-techBlue focus:ring-1 focus:ring-techBlue sm:text-sm transition-colors" placeholder="验证码">
+                </div>
+                <button class="bg-techBlue text-white px-4 py-2 rounded-md text-sm whitespace-nowrap shadow-sm hover:opacity-90 active:scale-95 transition-all">
+                    获取验证码
+                </button>
+            </div>
+
+            <!-- Password Input -->
+            <div class="relative group">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-lock text-gray-400 group-focus-within:text-techBlue"></i>
+                </div>
+                <input type="password" class="block w-full pl-10 pr-3 py-3 border border-lightCyan rounded-md leading-5 bg-white placeholder-gray-400 focus:outline-none focus:border-techBlue focus:ring-1 focus:ring-techBlue sm:text-sm transition-colors" placeholder="请输入密码">
+            </div>
+            
+            <button class="w-full bg-gradient-to-r from-techBlue to-cyan-400 text-white font-medium py-3.5 rounded-lg shadow-md mt-6 active:scale-95 transition-transform">
+                登录
+            </button>
+        </div>
+
+        <div class="flex-grow"></div>
+
+        <!-- WeChat Login -->
+        <div class="mb-10 text-center">
+            <div class="flex items-center justify-center gap-4 py-4 cursor-pointer active:scale-95 transition-transform">
+                <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white shadow-md">
+                    <i class="fab fa-weixin text-xl"></i>
+                </div>
+                <span class="text-gray-600 text-sm font-medium">微信快捷登录</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-800 rounded-full z-50"></div>
+
+</body>
+</html>

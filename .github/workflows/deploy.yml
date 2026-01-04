@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  # 仅允许手动触发 workflow，不监听代码推送
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 检出代码
+      - uses: actions/checkout@v4
+
+      # 2. 设置 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # 3. 安装依赖
+      # 进入项目目录安装依赖
+      - name: Install dependencies
+        run: |
+          cd medical-edu-uniapp
+          npm install
+
+      # 4. 构建 H5
+      # 运行 uni-app 的 H5 构建命令
+      - name: Build H5
+        run: |
+          cd medical-edu-uniapp
+          npm run build:h5
+
+      # 5. 部署到 GitHub Pages
+      # 将构建产物 (dist/build/h5) 推送到 gh-pages 分支
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./medical-edu-uniapp/dist/build/h5

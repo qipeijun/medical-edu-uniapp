@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完善信息</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techBlue: '#03A9F4',
+                        lightCyan: '#E0F7FA',
+                        grassGreen: '#81C784',
+                        warmWhite: '#FAFAFA',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-warmWhite text-gray-800 h-screen w-full overflow-hidden flex flex-col relative">
+
+    <!-- Status Bar -->
+    <div class="h-12 w-full flex justify-between items-center px-6 pt-2 bg-transparent z-50 absolute top-0 text-gray-800 font-medium">
+        <span>9:41</span>
+        <div class="flex items-center gap-1.5">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-full text-xs"></i>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <div class="h-14 flex items-center px-4 mt-10 border-b border-gray-100 bg-white">
+        <button class="w-10 h-10 flex items-center justify-center rounded-full active:bg-gray-100">
+            <i class="fas fa-arrow-left text-lg text-gray-700"></i>
+        </button>
+        <span class="ml-2 font-bold text-lg">完善个人信息</span>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 overflow-y-auto px-4 py-6 pb-24 hide-scrollbar">
+        
+        <!-- Avatar -->
+        <div class="flex flex-col items-center mb-8">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-lightCyan to-techBlue flex items-center justify-center mb-2 shadow-inner relative overflow-hidden group cursor-pointer">
+                <i class="fas fa-camera text-2xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                <!-- <img src="..." class="absolute w-full h-full object-cover"> -->
+            </div>
+            <span class="text-sm text-gray-500">点击上传头像 <span class="text-red-500">*</span></span>
+        </div>
+
+        <!-- Section: Basic Info -->
+        <div class="mb-6">
+            <h3 class="text-sm font-bold text-techBlue mb-3 px-1 border-l-4 border-techBlue pl-2">基础信息</h3>
+            <div class="space-y-4 bg-white p-4 rounded-xl shadow-sm">
+                <!-- Name -->
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-gray-500 font-medium">姓名 <span class="text-red-500">*</span></label>
+                    <input type="text" class="w-full border-b border-lightCyan py-2 focus:border-techBlue focus:outline-none transition-colors text-sm" placeholder="请输入真实姓名">
+                </div>
+                <!-- Nickname -->
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-gray-500 font-medium">昵称 <span class="text-red-500">*</span></label>
+                    <input type="text" class="w-full border-b border-lightCyan py-2 focus:border-techBlue focus:outline-none transition-colors text-sm" placeholder="请输入昵称">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Academic Info -->
+        <div class="mb-6">
+            <h3 class="text-sm font-bold text-techBlue mb-3 px-1 border-l-4 border-techBlue pl-2">学籍信息</h3>
+            <div class="space-y-4 bg-white p-4 rounded-xl shadow-sm">
+                <!-- School -->
+                <div class="flex flex-col gap-1 relative">
+                    <label class="text-xs text-gray-500 font-medium">学校 <span class="text-red-500">*</span></label>
+                    <select class="w-full border-b border-lightCyan py-2 focus:border-techBlue focus:outline-none bg-transparent appearance-none text-sm text-gray-700">
+                        <option value="" disabled selected>请选择学校</option>
+                        <option value="1">北京大学医学部</option>
+                        <option value="2">复旦大学上海医学院</option>
+                        <option value="3">上海交通大学医学院</option>
+                    </select>
+                    <i class="fas fa-chevron-down absolute right-0 bottom-3 text-gray-300 pointer-events-none text-xs"></i>
+                </div>
+                 <!-- Major -->
+                 <div class="flex flex-col gap-1 relative">
+                    <label class="text-xs text-gray-500 font-medium">专业 <span class="text-red-500">*</span></label>
+                    <select class="w-full border-b border-lightCyan py-2 focus:border-techBlue focus:outline-none bg-transparent appearance-none text-sm text-gray-700">
+                        <option value="" disabled selected>请选择专业</option>
+                        <option value="1">临床医学</option>
+                        <option value="2">口腔医学</option>
+                        <option value="3">预防医学</option>
+                    </select>
+                    <i class="fas fa-chevron-down absolute right-0 bottom-3 text-gray-300 pointer-events-none text-xs"></i>
+                </div>
+                <!-- Grade -->
+                <div class="flex flex-col gap-1 relative">
+                    <label class="text-xs text-gray-500 font-medium">年级 <span class="text-red-500">*</span></label>
+                    <select class="w-full border-b border-lightCyan py-2 focus:border-techBlue focus:outline-none bg-transparent appearance-none text-sm text-gray-700">
+                        <option value="" disabled selected>请选择年级</option>
+                        <option value="2022">2022级</option>
+                        <option value="2023">2023级</option>
+                        <option value="2024">2024级</option>
+                    </select>
+                    <i class="fas fa-chevron-down absolute right-0 bottom-3 text-gray-300 pointer-events-none text-xs"></i>
+                </div>
+                <!-- Student ID -->
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-gray-500 font-medium">学号 <span class="text-red-500">*</span></label>
+                    <input type="text" class="w-full border-b border-lightCyan py-2 focus:border-techBlue focus:outline-none transition-colors text-sm" placeholder="请输入学号">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Button -->
+    <div class="absolute bottom-0 left-0 w-full px-4 pb-6 pt-2 bg-warmWhite z-10">
+        <button class="w-full bg-gradient-to-r from-techBlue to-cyan-400 text-white font-bold py-3.5 rounded-lg shadow-md active:scale-95 transition-transform">
+            提交信息
+        </button>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-800 rounded-full z-50"></div>
+
+</body>
+</html>
