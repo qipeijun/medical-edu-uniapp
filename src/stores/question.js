@@ -3,6 +3,7 @@
  */
 
 import { defineStore } from 'pinia'
+import { useFavoritesStore } from './favorites'
 import { mockSubjects } from '@/mock/subjects'
 import { mockQuestions, getQuestionsByCategory, getQuestionById } from '@/mock/questions'
 import { STORAGE_KEYS } from '@/utils/constants'
@@ -257,9 +258,11 @@ export const useQuestionStore = defineStore('question', {
 		 * 收藏/取消收藏
 		 */
 		toggleFavorite(questionId) {
-			// TODO: 实现收藏功能(在 favorites store 中)
+			const favoritesStore = useFavoritesStore()
+			const isFav = favoritesStore.toggleFavorite(questionId)
+			
 			uni.showToast({
-				title: '收藏功能开发中',
+				title: isFav ? '收藏成功' : '已取消收藏',
 				icon: 'none'
 			})
 		},

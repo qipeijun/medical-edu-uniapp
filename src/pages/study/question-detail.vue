@@ -77,8 +77,8 @@
 				<text class="text">上一题</text>
 			</view>
 			<view class="action-btn" @click="toggleFavorite">
-				<text class="icon">⭐</text>
-				<text class="text">收藏</text>
+				<text class="icon" :style="{ color: isFavorite ? '#FFC107' : '' }">{{ isFavorite ? '⭐' : '☆' }}</text>
+				<text class="text">{{ isFavorite ? '已收藏' : '收藏' }}</text>
 			</view>
 			<view class="action-btn" @click="reportError">
 				<text class="icon">📝</text>
@@ -91,6 +91,7 @@
 
 <script>
 import { useQuestionStore } from '@/stores/question'
+import { useFavoritesStore } from '@/stores/favorites'
 import StatusBar from '@/components/common/StatusBar.vue'
 import { QUESTION_TYPES } from '@/utils/constants'
 import OptionItem from '@/components/question/OptionItem.vue'
@@ -139,7 +140,14 @@ export default {
         },
         isAnswered() {
             return !!this.userAnswerRecord
-        }
+        },
+        favStore() {
+            return useFavoritesStore()
+        },
+		isFavorite() {
+			if (!this.currentQuestion) return false
+			return this.favStore.isFavorite(this.currentQuestion.id)
+		}
 	},
     onLoad() {
         // #ifdef MP-WEIXIN
@@ -176,6 +184,9 @@ export default {
         handleOptionClick(opt) {
             if (this.isAnswered) return // Prevent changing answer
             
+            // Haptic Feedback
+            uni.vibrateShort()
+
             // For Single Choice (TYPE_A)
             if (this.currentQuestion.type === 'TYPE_A') {
                 this.questionStore.submitAnswer(this.currentQuestion.id, opt.label)
