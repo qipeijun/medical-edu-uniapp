@@ -64,7 +64,7 @@ export default {
 
 .option-item {
     background-color: $bg-white;
-    border: 1px solid $border-light;
+    border: 2rpx solid $border-light;
     border-radius: $radius-lg;
     padding: 32rpx;
     margin-bottom: 24rpx;
@@ -104,7 +104,7 @@ export default {
         width: 48rpx;
         height: 48rpx;
         border-radius: $radius-full;
-        border: 1px solid $gray-400;
+        border: 2rpx solid $gray-400;
         @include flex-center;
         font-size: $font-size-xs;
         color: $text-secondary;

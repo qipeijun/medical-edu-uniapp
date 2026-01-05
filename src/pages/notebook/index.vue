@@ -120,6 +120,8 @@ export default {
         padding: 32rpx;
         margin-bottom: 24rpx;
         box-shadow: $shadow-sm;
+        max-width: 100%;
+        box-sizing: border-box;
         
         .note-title {
             font-size: $font-size-base;

@@ -248,7 +248,7 @@ export default {
 
 .tabs {
 	display: flex;
-	border-bottom: 1px solid $border-light;
+	border-bottom: 2rpx solid $border-light;
 	margin-bottom: 24rpx;
 	
 	.tab-item {
@@ -299,7 +299,7 @@ export default {
 			
 			.lesson-item {
 				padding: 24rpx;
-				border-bottom: 1px solid $gray-50;
+				border-bottom: 2rpx solid $gray-50;
 				display: flex;
 				align-items: center;
 				
@@ -342,7 +342,7 @@ export default {
 				.free-tag {
 					font-size: 20rpx;
 					color: $success;
-					border: 1px solid $success;
+					border: 2rpx solid $success;
 					padding: 2rpx 8rpx;
 					border-radius: $radius-sm;
 				}

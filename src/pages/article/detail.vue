@@ -3,7 +3,7 @@
 	<view class="page">
 		<StatusBar />
 		
-		<view class="header" :class="{ scrolled: isScrolled }">
+		<view class="header" :class="{ scrolled: isScrolled }" :style="{ paddingRight: (headerPaddingRight + 16) + 'px' }">
 			<view class="back-btn" @click="goBack">
 				<text class="back-icon">←</text>
 			</view>
@@ -63,7 +63,8 @@ export default {
 	data() {
 		return {
 			articleId: null,
-            isScrolled: false
+            isScrolled: false,
+            headerPaddingRight: 0
 		}
 	},
     computed: {
@@ -95,6 +96,16 @@ export default {
 	onLoad(options) {
 		this.articleId = options.id
         this.articleStore.loadArticle(this.articleId)
+
+        // #ifdef MP-WEIXIN
+        try {
+            const menuButton = uni.getMenuButtonBoundingClientRect()
+            const systemInfo = uni.getSystemInfoSync()
+            if (menuButton) {
+                this.headerPaddingRight = (systemInfo.windowWidth - menuButton.left)
+            }
+        } catch (e) {}
+        // #endif
 	},
 	methods: {
 		goBack() {
@@ -152,7 +163,7 @@ export default {
 		@include flex-center;
 		border-radius: $radius-full;
         background-color: rgba(255,255,255,0.8);
-        border: 1px solid $border-light;
+        border: 2rpx solid $border-light;
 		
 		.back-icon, .action-icon {
 			font-size: 40rpx;
@@ -241,7 +252,7 @@ export default {
     }
     
     .related-section {
-        border-top: 1px solid $border-light;
+        border-top: 2rpx solid $border-light;
         padding-top: 48rpx;
         
         .section-title {
@@ -254,7 +265,7 @@ export default {
         
         .related-item {
             padding: 24rpx 0;
-            border-bottom: 1px solid $gray-50;
+            border-bottom: 2rpx solid $gray-50;
             
             .item-title {
                 font-size: $font-size-base;

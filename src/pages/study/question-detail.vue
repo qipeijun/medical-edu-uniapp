@@ -3,7 +3,7 @@
 		<StatusBar />
 		
 		<!-- Header -->
-		<view class="header">
+		<view class="header" :style="{ paddingRight: (headerPaddingRight + 32) + 'rpx' }">
 			<view class="back-btn" @click="goBack">
 				<text class="back-icon">←</text>
 			</view>
@@ -101,7 +101,8 @@ export default {
 	data() {
 		return {
 			mode: 'study', // 'study' (show answer immediately) or 'exam'
-            questionTypes: Object.values(QUESTION_TYPES)
+            questionTypes: Object.values(QUESTION_TYPES),
+            headerPaddingRight: 0
 		}
 	},
 	computed: {
@@ -140,10 +141,27 @@ export default {
             return !!this.userAnswerRecord
         }
 	},
+    onLoad() {
+        // #ifdef MP-WEIXIN
+        this.calculateHeaderPadding()
+        // #endif
+    },
 	methods: {
 		goBack() {
 			uni.navigateBack()
 		},
+        // #ifdef MP-WEIXIN
+        calculateHeaderPadding() {
+            try {
+                const menuButton = uni.getMenuButtonBoundingClientRect()
+                const systemInfo = uni.getSystemInfoSync()
+                if (menuButton) {
+                    // Convert px to rpx
+                    this.headerPaddingRight = (systemInfo.windowWidth - menuButton.left) * 2
+                }
+            } catch (e) {}
+        },
+        // #endif
         toggleMode() {
             this.mode = this.mode === 'study' ? 'exam' : 'study'
         },
@@ -197,7 +215,7 @@ export default {
 	padding: 0 32rpx;
 	@include flex-between;
 	background-color: $bg-white;
-	border-bottom: 1px solid $border-light;
+	border-bottom: 2rpx solid $border-light;
 	
 	.back-btn {
 		width: 64rpx;
@@ -219,24 +237,26 @@ export default {
 	.mode-switch {
 		display: flex;
 		align-items: center;
-		
+		// Increase touch target area
+		padding: 16rpx 0;
+
 		.mode-text {
 			font-size: $font-size-xs;
 			color: $text-secondary;
 			margin-right: 8rpx;
 		}
-		
+
 		.switch {
-			width: 64rpx;
-			height: 32rpx;
+			width: 88rpx;
+			height: 48rpx;
 			background-color: $gray-300;
 			border-radius: $radius-full;
 			position: relative;
 			transition: background-color $transition-base;
 			
 			.switch-handle {
-				width: 24rpx;
-				height: 24rpx;
+				width: 40rpx;
+				height: 40rpx;
 				background-color: $bg-white;
 				border-radius: $radius-full;
 				position: absolute;
@@ -245,12 +265,12 @@ export default {
 				transition: left $transition-base;
 				box-shadow: $shadow-sm;
 			}
-			
+
 			&.active {
 				background-color: $tech-blue;
-				
+
 				.switch-handle {
-					left: 36rpx;
+					left: 44rpx;
 				}
 			}
 		}
@@ -267,7 +287,7 @@ export default {
 		display: inline-block;
 		padding: 8rpx 24rpx;
 		background-color: $bg-white;
-		border: 1px solid $border-light;
+		border: 2rpx solid $border-light;
 		border-radius: $radius-full;
 		color: $text-secondary;
 		font-size: $font-size-xs;
@@ -335,7 +355,7 @@ export default {
 .footer-actions {
 	@include fixed-bottom;
 	background-color: $bg-white;
-	border-top: 1px solid $border-light;
+	border-top: 2rpx solid $border-light;
 	padding: 16rpx 32rpx;
 	padding-bottom: calc(constant(safe-area-inset-bottom) + 16rpx);
     padding-bottom: calc(env(safe-area-inset-bottom) + 16rpx);

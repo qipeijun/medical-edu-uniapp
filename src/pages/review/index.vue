@@ -64,22 +64,18 @@
                 </view>
 			</view>
 			
-			<view class="footer-spacer"></view>
 		</scroll-view>
-
-		<TabBar />
 	</view>
 </template>
 
 <script>
 import { useReviewStore } from '@/stores/review'
 import { useQuestionStore } from '@/stores/question'
-import TabBar from '@/components/common/TabBar.vue'
 import ProgressRing from '@/components/review/ProgressRing.vue'
 import { SUBJECTS } from '@/utils/constants'
 
 export default {
-	components: { TabBar, ProgressRing },
+	components: { ProgressRing },
 	computed: {
 		reviewStore() {
 			return useReviewStore()
@@ -143,6 +139,8 @@ export default {
 .content {
 	flex: 1;
 	padding: 32rpx;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .overall-card {
@@ -154,6 +152,8 @@ export default {
 	overflow: hidden;
 	margin-bottom: 48rpx;
 	box-shadow: $shadow-lg;
+	max-width: 100%;
+	box-sizing: border-box;
 	
 	.bg-decoration {
 		position: absolute;
@@ -172,6 +172,10 @@ export default {
 		z-index: 1;
 		
 		.left {
+			flex: 1;
+			overflow: hidden;
+			margin-right: 24rpx;
+			
 			.label {
 				font-size: $font-size-sm;
 				opacity: 0.9;
@@ -198,6 +202,8 @@ export default {
 		}
         
         .right {
+            flex-shrink: 0;
+            
             .percent {
                 font-size: $font-size-sm;
                 font-weight: bold;
@@ -229,15 +235,21 @@ export default {
 		padding: 32rpx;
 		margin-bottom: 24rpx;
 		box-shadow: $shadow-sm;
-		border: 1px solid $border-light;
+		border: 2rpx solid $border-light;
+		max-width: 100%;
+		box-sizing: border-box;
 		@include flex-between;
 		
 		.card-left {
 			display: flex;
 			align-items: center;
+			flex: 1;
+			overflow: hidden;
+			margin-right: 24rpx;
 			
 			.icon-ring {
 				margin-right: 24rpx;
+				flex-shrink: 0;
 				
 				.icon {
 					font-size: 40rpx;
@@ -264,6 +276,7 @@ export default {
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
+			flex-shrink: 0;
 			
 			.tag {
 				font-size: 20rpx;

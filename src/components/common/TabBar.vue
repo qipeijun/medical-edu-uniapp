@@ -100,14 +100,14 @@ export default {
 	@include flex-between;
 	height: 100rpx;
 	background: $bg-white;
-	border-top: 1px solid $border-light;
+	border-top: 2rpx solid $border-light;
 	box-shadow: 0 -2rpx 8rpx rgba(0, 0, 0, 0.04);
 	z-index: $z-tabbar;
 
 	.tab-item {
 		@include flex-column-center;
 		flex: 1;
-		padding: 8rpx 0;
+		padding: 16rpx 0; // Increased for better touch target
 		transition: all $transition-base;
 
 		&:active {

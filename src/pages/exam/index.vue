@@ -172,6 +172,8 @@ export default {
 		padding: 32rpx;
 		margin-bottom: 32rpx;
 		box-shadow: $shadow-sm;
+		max-width: 100%;
+		box-sizing: border-box;
 		
 		&:active {
 			transform: scale(0.99);
@@ -204,7 +206,7 @@ export default {
 		
 		.card-body {
 			padding-bottom: 24rpx;
-			border-bottom: 1px solid $gray-50;
+			border-bottom: 2rpx solid $gray-50;
 			margin-bottom: 24rpx;
 			
 			.info-row {

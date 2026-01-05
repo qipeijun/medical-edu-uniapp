@@ -3,8 +3,7 @@
 		<!-- 状态栏 -->
 		<StatusBar />
 
-		<!-- 顶部区域 -->
-		<view class="header">
+		<view class="header" :style="{ paddingRight: headerPaddingRight + 'rpx' }">
 			<view class="greeting-section">
 				<view>
 					<text class="greeting">{{ greeting }},</text>
@@ -112,11 +111,8 @@
 			</view>
 
 			<!-- 底部占位 -->
-			<view style="height: 120rpx;"></view>
+			<!-- Native TabBar handles spacing automatically -->
 		</scroll-view>
-
-		<!-- 自定义 TabBar -->
-		<TabBar />
 	</view>
 </template>
 
@@ -127,12 +123,10 @@ import { mockArticles } from '@/mock/articles'
 import { ARTICLE_CATEGORIES } from '@/utils/constants'
 import { getGreeting, formatDate as formatDateUtil } from '@/utils/date'
 import StatusBar from '@/components/common/StatusBar.vue'
-import TabBar from '@/components/common/TabBar.vue'
 
 export default {
 	components: {
-		StatusBar,
-		TabBar
+		StatusBar
 	},
 	data() {
 		return {
@@ -140,6 +134,7 @@ export default {
 			currentCategory: 'all',
 			categories: ARTICLE_CATEGORIES,
 			articles: mockArticles,
+            headerPaddingRight: 32, // Default padding in rpx
 			functionList: [
 				{ id: 1, name: '课程', icon: '📖', color: '#03A9F4', bgColor: '#E1F5FE', route: '/pages/courses/index', disabled: false },
 				{ id: 2, name: '习题', icon: '✏️', color: '#03A9F4', bgColor: '#E1F5FE', route: '/pages/study/index', disabled: false },
@@ -182,6 +177,21 @@ export default {
 
 		// 加载今日复习
 		this.reviewStore.loadTodayReviews()
+
+        // #ifdef MP-WEIXIN
+        // Calculate safe padding for capsule button (convert px to rpx)
+        try {
+            const menuButton = uni.getMenuButtonBoundingClientRect()
+            const systemInfo = uni.getSystemInfoSync()
+            if (menuButton && systemInfo) {
+                // Width from right edge to menu button left edge + margin, convert px to rpx
+                const pxValue = (systemInfo.windowWidth - menuButton.left) + 10
+                this.headerPaddingRight = pxValue * 2 // px to rpx conversion
+            }
+        } catch (e) {
+            console.error('Failed to get menu button info', e)
+        }
+        // #endif
 	},
 	methods: {
 		formatDate(date) {
@@ -288,6 +298,8 @@ export default {
 
 .banner-section {
 	margin: 0 32rpx 32rpx 32rpx;
+	max-width: 100%;
+	box-sizing: border-box;
 
 	.banner-swiper {
 		height: 280rpx;
@@ -323,6 +335,8 @@ export default {
 	overflow: hidden;
 	box-shadow: $shadow-sm;
 	margin: 0 32rpx 32rpx 32rpx;
+	max-width: 100%;
+	box-sizing: border-box;
 
 	.review-header-bg {
 		background-color: $tech-blue;
@@ -365,7 +379,7 @@ export default {
 		.subject-row {
 			@include flex-between;
 			background-color: $bg-white;
-			border: 1px solid $border-light;
+			border: 2rpx solid $border-light;
 			border-radius: $radius-lg;
 			padding: 16rpx;
 			box-shadow: $shadow-xs;
@@ -398,8 +412,8 @@ export default {
 			
 			.btn-start {
 				@include btn-primary;
-				height: 56rpx;
-				padding: 0 24rpx;
+				height: 88rpx;
+				padding: 0 32rpx;
 				font-size: $font-size-xs;
 				border-radius: $radius-full;
 			}
@@ -476,7 +490,7 @@ export default {
 			display: inline-block;
 			padding: 12rpx 32rpx;
 			background: $bg-white;
-			border: 1px solid $border-light;
+			border: 2rpx solid $border-light;
 			border-radius: $radius-full;
 			font-size: $font-size-xs;
 			color: $text-secondary;

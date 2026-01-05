@@ -51,6 +51,8 @@
   border-radius: $card-radius;
   box-shadow: $card-shadow;
   overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 // 带内边距的卡片
@@ -227,7 +229,7 @@
 @mixin list-item {
   @include flex-between;
   padding: 32rpx 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 2rpx solid $border-light;
 
   &:last-child {
     border-bottom: none;
@@ -270,13 +272,13 @@
 // Divider
 
 @mixin divider {
-  height: 1px;
+  height: 2rpx;
   background: $border-light;
   border: none;
 }
 
 @mixin divider-vertical {
-  width: 1px;
+  width: 2rpx;
   background: $border-light;
   border: none;
 }

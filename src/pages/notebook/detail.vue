@@ -2,7 +2,7 @@
 	<view class="page">
 		<StatusBar />
 		
-		<view class="header">
+		<view class="header" :style="{ paddingRight: (headerPaddingRight + 16) + 'px' }">
 			<view class="back-btn" @click="goBack">
 				<text class="back-icon">←</text>
 			</view>
@@ -35,7 +35,8 @@ export default {
             note: {
                 title: '',
                 content: ''
-            }
+            },
+            headerPaddingRight: 0
 		}
 	},
     computed: {
@@ -54,6 +55,16 @@ export default {
                 this.note = { ...existing }
             }
         }
+        
+        // #ifdef MP-WEIXIN
+        try {
+            const menuButton = uni.getMenuButtonBoundingClientRect()
+            const systemInfo = uni.getSystemInfoSync()
+            if (menuButton) {
+                this.headerPaddingRight = (systemInfo.windowWidth - menuButton.left)
+            }
+        } catch (e) {}
+        // #endif
 	},
 	methods: {
 		goBack() {
@@ -106,7 +117,7 @@ export default {
 	height: 88rpx;
 	@include flex-between;
 	padding: 0 32rpx;
-	border-bottom: 1px solid $border-light;
+	border-bottom: 2rpx solid $border-light;
 	
 	.back-btn {
 		width: 64rpx;
@@ -146,7 +157,7 @@ export default {
         font-size: 36rpx;
         font-weight: bold;
         padding: 24rpx 0;
-        border-bottom: 1px solid $border-light;
+        border-bottom: 2rpx solid $border-light;
         margin-bottom: 24rpx;
     }
     
@@ -165,7 +176,7 @@ export default {
     .btn-delete {
         background-color: $bg-white;
         color: $error;
-        border: 1px solid $error;
+        border: 2rpx solid $error;
         border-radius: $radius-full;
         font-size: $font-size-base;
     }

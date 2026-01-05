@@ -135,7 +135,7 @@ export default {
     .setting-item {
         padding: 32rpx;
         @include flex-between;
-        border-bottom: 1px solid $gray-50;
+        border-bottom: 2rpx solid $gray-50;
         
         &:last-child {
             border-bottom: none;

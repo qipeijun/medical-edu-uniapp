@@ -13,7 +13,6 @@
 					<text class="sidebar-text">{{ subject.name }}</text>
 				</view>
                 <!-- Padding for bottom -->
-                <view style="height: 120rpx;"></view>
 			</scroll-view>
 
 			<!-- Content -->
@@ -43,20 +42,15 @@
                     <text class="empty-text">该学科暂无题库数据</text>
                 </view>
 				
-				<view class="footer-spacer"></view>
 			</scroll-view>
 		</view>
-
-		<TabBar />
 	</view>
 </template>
 
 <script>
 import { useQuestionStore } from '@/stores/question'
-import TabBar from '@/components/common/TabBar.vue'
 
 export default {
-	components: { TabBar },
 	data() {
 		return {
 			currentSubjectId: 1
@@ -113,7 +107,7 @@ export default {
 	background-color: $bg-white;
 	box-shadow: $shadow-sm;
 	z-index: 10;
-	border-bottom: 1px solid $border-light;
+	border-bottom: 2rpx solid $border-light;
 	
 	.title {
 		font-size: $font-size-lg;
@@ -186,7 +180,7 @@ export default {
 		
 		.category-card {
 			background-color: $bg-white;
-			border: 1px solid $border-light;
+			border: 2rpx solid $border-light;
 			border-radius: $radius-lg;
 			padding: 24rpx;
 			transition: all $transition-base;

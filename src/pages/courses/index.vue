@@ -106,6 +106,8 @@ export default {
 		overflow: hidden;
 		box-shadow: $shadow-sm;
 		margin-bottom: 32rpx;
+		max-width: 100%;
+		box-sizing: border-box;
 		
 		&:active {
 			transform: scale(0.99);

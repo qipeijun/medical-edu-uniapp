@@ -147,7 +147,7 @@ export default {
                 font-size: $font-size-xs;
                 color: $error;
                 padding: 8rpx 16rpx;
-                border: 1px solid $error;
+                border: 2rpx solid $error;
                 border-radius: $radius-full;
             }
         }

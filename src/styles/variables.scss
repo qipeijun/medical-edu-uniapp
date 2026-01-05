@@ -129,6 +129,7 @@ $z-modal-backdrop: 1040;
 $z-modal: 1050;
 $z-popover: 1060;
 $z-tooltip: 1070;
+$z-loading: 1080;  // Loading overlay should be above all other elements
 $z-navbar: 100;
 $z-tabbar: 50;
 
@@ -166,9 +167,9 @@ $statusbar-height: 40rpx; // 动态获取
 // Component Specific Variables
 
 // 按钮 (Button)
-$button-height-sm: 56rpx;   // 28px
-$button-height-md: 72rpx;   // 36px
-$button-height-lg: 88rpx;   // 44px
+$button-height-sm: 88rpx;   // 44px - minimum touch target
+$button-height-md: 88rpx;   // 44px - minimum touch target
+$button-height-lg: 96rpx;   // 48px
 $button-padding-h: 32rpx;   // 16px
 
 // 输入框 (Input)

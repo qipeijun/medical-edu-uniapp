@@ -183,7 +183,7 @@ export default {
 	display: flex;
 	align-items: center;
 	background-color: $bg-white;
-	border-bottom: 1px solid $border-light;
+	border-bottom: 2rpx solid $border-light;
 	
 	.back-btn {
 		width: 64rpx;
@@ -281,7 +281,7 @@ export default {
 		
 		.form-item {
 			padding: 32rpx 0;
-			border-bottom: 1px solid $border-light;
+			border-bottom: 2rpx solid $border-light;
 			
 			&:last-child {
 				border-bottom: none;

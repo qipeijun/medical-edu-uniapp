@@ -3,7 +3,7 @@
 		<StatusBar />
 		
 		<!-- Header -->
-		<view class="header">
+		<view class="header" :style="{ paddingRight: (headerPaddingRight + 32) + 'rpx' }">
 			<view class="back-btn" @click="confirmExit">
 				<text class="back-icon">←</text>
 			</view>
@@ -95,7 +95,8 @@ export default {
             answers: {}, // { questionId: answer }
             timeLeft: 0,
             timer: null,
-            showSheet: false
+            showSheet: false,
+            headerPaddingRight: 0
 		}
 	},
     computed: {
@@ -132,6 +133,17 @@ export default {
             this.timeLeft = this.examStore.currentExam.duration * 60
             this.startTimer()
         }
+
+        // #ifdef MP-WEIXIN
+        try {
+            const menuButton = uni.getMenuButtonBoundingClientRect()
+            const systemInfo = uni.getSystemInfoSync()
+            if (menuButton) {
+                // Convert px to rpx
+                this.headerPaddingRight = (systemInfo.windowWidth - menuButton.left) * 2
+            }
+        } catch (e) {}
+        // #endif
 	},
 	methods: {
         startTimer() {
@@ -238,7 +250,7 @@ export default {
 	padding: 0 32rpx;
 	@include flex-between;
 	background-color: $bg-white;
-	border-bottom: 1px solid $border-light;
+	border-bottom: 2rpx solid $border-light;
 	
 	.back-btn {
 		width: 64rpx;
@@ -317,7 +329,7 @@ export default {
     .options-list {
         .option-item {
             background-color: $bg-white;
-            border: 1px solid $border-light;
+            border: 2rpx solid $border-light;
             border-radius: $radius-lg;
             padding: 32rpx;
             margin-bottom: 24rpx;
@@ -345,7 +357,7 @@ export default {
                 width: 48rpx;
                 height: 48rpx;
                 border-radius: $radius-full;
-                border: 1px solid $gray-400;
+                border: 2rpx solid $gray-400;
                 @include flex-center;
                 font-size: $font-size-xs;
                 color: $text-secondary;
@@ -369,7 +381,7 @@ export default {
 .footer {
     @include fixed-bottom;
     background-color: $bg-white;
-    border-top: 1px solid $border-light;
+    border-top: 2rpx solid $border-light;
     padding: 16rpx 32rpx;
     padding-bottom: calc(constant(safe-area-inset-bottom) + 16rpx);
     padding-bottom: calc(env(safe-area-inset-bottom) + 16rpx);
@@ -456,7 +468,7 @@ export default {
                 &.answered {
                     background-color: $light-cyan;
                     color: $tech-blue;
-                    border: 1px solid $tech-blue;
+                    border: 2rpx solid $tech-blue;
                 }
                 
                 &.current {

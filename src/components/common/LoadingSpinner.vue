@@ -36,7 +36,7 @@ export default {
 		right: 0;
 		bottom: 0;
 		background-color: rgba(255, 255, 255, 0.8);
-		z-index: 9999;
+		z-index: $z-loading; // Use design system variable
 	}
 	
 	.spinner {

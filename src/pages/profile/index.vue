@@ -73,20 +73,16 @@
 				</view>
 			</view>
 			
-			<view class="footer-spacer"></view>
 		</scroll-view>
-		
-		<TabBar />
 	</view>
 </template>
 
 <script>
 import { useUserStore } from '@/stores/user'
 import StatusBar from '@/components/common/StatusBar.vue'
-import TabBar from '@/components/common/TabBar.vue'
 
 export default {
-	components: { StatusBar, TabBar },
+	components: { StatusBar },
 	computed: {
 		userStore() {
 			return useUserStore()
@@ -155,6 +151,8 @@ export default {
 	z-index: 1;
 	padding: 0 32rpx;
     padding-top: 200rpx; // Adjust based on Status Bar + some space
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .profile-card {
@@ -165,6 +163,8 @@ export default {
 	align-items: center;
 	box-shadow: $shadow-lg;
 	margin-bottom: 32rpx;
+	max-width: 100%;
+	box-sizing: border-box;
 	
 	.avatar-box {
 		width: 128rpx;
@@ -176,6 +176,7 @@ export default {
 		overflow: hidden;
 		margin-right: 32rpx;
         @include flex-center;
+		flex-shrink: 0;
 		
 		.avatar-img {
 			width: 100%;
@@ -192,6 +193,7 @@ export default {
 	
 	.info-box {
 		flex: 1;
+		overflow: hidden;
 		
 		.name-row {
 			@include flex-between;
@@ -229,7 +231,7 @@ export default {
 		display: flex;
 		align-items: center;
 		padding: 32rpx;
-		border-bottom: 1px solid $gray-50;
+		border-bottom: 2rpx solid $gray-50;
 		transition: background-color $transition-base;
 		
 		&:last-child {
